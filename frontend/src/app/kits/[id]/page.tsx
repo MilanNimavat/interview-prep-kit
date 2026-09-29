@@ -83,7 +83,7 @@ export default function KitDetailPage() {
   const handleBriefEdit = (field: 'summary' | 'what_they_do', val: string) => {
     const updated = { ...kitRecord.kitData };
     updated.company_brief[field] = val;
-    saveKitChanges(updated);
+    setKitRecord({ ...kitRecord, kitData: updated });
   };
 
   // Toggle question pin state
@@ -112,7 +112,11 @@ export default function KitDetailPage() {
       }
       return q;
     });
-    saveKitChanges(updated);
+    setKitRecord({ ...kitRecord, kitData: updated });
+  };
+
+  const handleBlurSave = () => {
+    saveKitChanges(kitRecord.kitData);
   };
 
   // Move question position
@@ -301,6 +305,7 @@ export default function KitDetailPage() {
               rows={2}
               value={kit.company_brief.summary}
               onChange={(e) => handleBriefEdit('summary', e.target.value)}
+              onBlur={handleBlurSave}
               className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 focus:outline-none focus:border-blue-500 font-sans"
             />
           </div>
@@ -311,6 +316,7 @@ export default function KitDetailPage() {
               rows={3}
               value={kit.company_brief.what_they_do}
               onChange={(e) => handleBriefEdit('what_they_do', e.target.value)}
+              onBlur={handleBlurSave}
               className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 focus:outline-none focus:border-blue-500 font-sans"
             />
           </div>
@@ -463,6 +469,7 @@ export default function KitDetailPage() {
                     rows={2}
                     value={q.prompt}
                     onChange={(e) => handleQuestionEdit(q.id, 'prompt', e.target.value)}
+                    onBlur={handleBlurSave}
                     className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-100 font-medium text-sm focus:outline-none focus:border-blue-500"
                   />
                 </div>
@@ -476,6 +483,7 @@ export default function KitDetailPage() {
                     rows={2}
                     value={q.answer_outline}
                     onChange={(e) => handleQuestionEdit(q.id, 'answer_outline', e.target.value)}
+                    onBlur={handleBlurSave}
                     className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-300 text-xs focus:outline-none focus:border-blue-500"
                   />
                 </div>
