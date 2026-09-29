@@ -1,0 +1,950 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-28T10:17:42.371Z",
+  "kits": [
+    {
+      "id": "case-1-standard-fullstack",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Apex",
+          "company_url": "https://apex.io",
+          "role": "Full-Stack Engineer",
+          "location": "Remote / Hybrid",
+          "jd_chars": 282,
+          "researched_at": "2026-09-28T10:17:42.362Z",
+          "pages_used": [
+            "https://apex.io"
+          ]
+        },
+        "company_brief": {
+          "summary": "Apex is the hiring organization.",
+          "what_they_do": "Building scalable software and developer applications.",
+          "sources": [
+            "https://apex.io"
+          ]
+        },
+        "role": {
+          "title": "Full-Stack Engineer",
+          "seniority": "Senior",
+          "responsibilities": [
+            "Design and implement Node.js API services",
+            "Build frontend web applications with Next.js"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Core Backend API Development & Node.js",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r2",
+              "text": "Frontend Engineering & Modern React",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r3",
+              "text": "System Architecture & Scalability",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r4",
+              "text": "Database Design & Optimization",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "r5",
+              "text": "Cross-functional Communication",
+              "kind": "behavioural",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "requirement_ids": [
+              "r3"
+            ],
+            "category": "system-design",
+            "prompt": "Design a high-availability backend service for managing interview kits.",
+            "answer_outline": "Use load balanced microservices, Redis caching, and async worker queues.",
+            "difficulty": 3
+          },
+          {
+            "id": "q2",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "How do you handle async error handling in Express TypeScript middleware?",
+            "answer_outline": "Use custom error classes and central error handling middleware.",
+            "difficulty": 2
+          },
+          {
+            "id": "q3",
+            "requirement_ids": [
+              "r2"
+            ],
+            "category": "technical",
+            "prompt": "Compare React Server Components vs Client Components in Next.js App Router.",
+            "answer_outline": "Server components execute on server reducing JS bundle size.",
+            "difficulty": 2
+          },
+          {
+            "id": "q4",
+            "requirement_ids": [
+              "r4"
+            ],
+            "category": "technical",
+            "prompt": "How do you index and optimize slow MongoDB aggregation queries?",
+            "answer_outline": "Place $match first using covered compound indexes.",
+            "difficulty": 2
+          },
+          {
+            "id": "q5",
+            "requirement_ids": [
+              "r5"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe how you handle technical disagreements with team members.",
+            "answer_outline": "Drive data-based benchmarking and consensus reviews.",
+            "difficulty": 1
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "Express Error Middleware Signature",
+            "back": "(err, req, res, next)",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f2",
+            "front": "Next.js App Router Server Actions",
+            "back": "Asynchronous server functions callable from UI components",
+            "requirement_ids": [
+              "r2"
+            ]
+          }
+        ],
+        "schedule": {
+          "days_available": 5,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Day 1: System Design",
+              "question_ids": [
+                "q1"
+              ],
+              "minutes": 25
+            },
+            {
+              "day": 2,
+              "focus": "Day 2: Technical Prep",
+              "question_ids": [
+                "q2"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 3,
+              "focus": "Day 3: Technical Prep",
+              "question_ids": [
+                "q3"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 4,
+              "focus": "Day 4: Technical Prep",
+              "question_ids": [
+                "q4"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 5,
+              "focus": "Day 5: Behavioural",
+              "question_ids": [
+                "q5"
+              ],
+              "minutes": 10
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-2-stub-jd",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example",
+          "company_url": "https://example.org",
+          "role": "Full-Stack Engineer",
+          "location": "Remote / Hybrid",
+          "jd_chars": 53,
+          "researched_at": "2026-09-28T10:17:42.369Z",
+          "pages_used": [
+            "https://example.org"
+          ]
+        },
+        "company_brief": {
+          "summary": "Example is the hiring organization.",
+          "what_they_do": "Building scalable software and developer applications.",
+          "sources": [
+            "https://example.org"
+          ]
+        },
+        "role": {
+          "title": "Full-Stack Engineer",
+          "seniority": "Senior",
+          "responsibilities": [
+            "Design and implement Node.js API services",
+            "Build frontend web applications with Next.js"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Core Backend API Development & Node.js",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r2",
+              "text": "Frontend Engineering & Modern React",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r3",
+              "text": "System Architecture & Scalability",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r4",
+              "text": "Database Design & Optimization",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "r5",
+              "text": "Cross-functional Communication",
+              "kind": "behavioural",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "requirement_ids": [
+              "r3"
+            ],
+            "category": "system-design",
+            "prompt": "Design a high-availability backend service for managing interview kits.",
+            "answer_outline": "Use load balanced microservices, Redis caching, and async worker queues.",
+            "difficulty": 3
+          },
+          {
+            "id": "q2",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "How do you handle async error handling in Express TypeScript middleware?",
+            "answer_outline": "Use custom error classes and central error handling middleware.",
+            "difficulty": 2
+          },
+          {
+            "id": "q3",
+            "requirement_ids": [
+              "r2"
+            ],
+            "category": "technical",
+            "prompt": "Compare React Server Components vs Client Components in Next.js App Router.",
+            "answer_outline": "Server components execute on server reducing JS bundle size.",
+            "difficulty": 2
+          },
+          {
+            "id": "q4",
+            "requirement_ids": [
+              "r4"
+            ],
+            "category": "technical",
+            "prompt": "How do you index and optimize slow MongoDB aggregation queries?",
+            "answer_outline": "Place $match first using covered compound indexes.",
+            "difficulty": 2
+          },
+          {
+            "id": "q5",
+            "requirement_ids": [
+              "r5"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe how you handle technical disagreements with team members.",
+            "answer_outline": "Drive data-based benchmarking and consensus reviews.",
+            "difficulty": 1
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "Express Error Middleware Signature",
+            "back": "(err, req, res, next)",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f2",
+            "front": "Next.js App Router Server Actions",
+            "back": "Asynchronous server functions callable from UI components",
+            "requirement_ids": [
+              "r2"
+            ]
+          }
+        ],
+        "schedule": {
+          "days_available": 3,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Day 1: System Design & Technical Prep",
+              "question_ids": [
+                "q1",
+                "q2"
+              ],
+              "minutes": 40
+            },
+            {
+              "day": 2,
+              "focus": "Day 2: Technical Prep",
+              "question_ids": [
+                "q3",
+                "q4"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 3,
+              "focus": "Day 3: Behavioural",
+              "question_ids": [
+                "q5"
+              ],
+              "minutes": 10
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-3-unreachable-url",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Invalid-non-existent-company-domain-98234",
+          "company_url": "https://invalid-non-existent-company-domain-98234.org",
+          "role": "Full-Stack Engineer",
+          "location": "Remote / Hybrid",
+          "jd_chars": 157,
+          "researched_at": "2026-09-28T10:17:42.370Z",
+          "pages_used": [
+            "https://invalid-non-existent-company-domain-98234.org"
+          ]
+        },
+        "company_brief": {
+          "summary": "Invalid-non-existent-company-domain-98234 is the hiring organization.",
+          "what_they_do": "Building scalable software and developer applications.",
+          "sources": [
+            "https://invalid-non-existent-company-domain-98234.org"
+          ]
+        },
+        "role": {
+          "title": "Full-Stack Engineer",
+          "seniority": "Senior",
+          "responsibilities": [
+            "Design and implement Node.js API services",
+            "Build frontend web applications with Next.js"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Core Backend API Development & Node.js",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r2",
+              "text": "Frontend Engineering & Modern React",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r3",
+              "text": "System Architecture & Scalability",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r4",
+              "text": "Database Design & Optimization",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "r5",
+              "text": "Cross-functional Communication",
+              "kind": "behavioural",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "requirement_ids": [
+              "r3"
+            ],
+            "category": "system-design",
+            "prompt": "Design a high-availability backend service for managing interview kits.",
+            "answer_outline": "Use load balanced microservices, Redis caching, and async worker queues.",
+            "difficulty": 3
+          },
+          {
+            "id": "q2",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "How do you handle async error handling in Express TypeScript middleware?",
+            "answer_outline": "Use custom error classes and central error handling middleware.",
+            "difficulty": 2
+          },
+          {
+            "id": "q3",
+            "requirement_ids": [
+              "r2"
+            ],
+            "category": "technical",
+            "prompt": "Compare React Server Components vs Client Components in Next.js App Router.",
+            "answer_outline": "Server components execute on server reducing JS bundle size.",
+            "difficulty": 2
+          },
+          {
+            "id": "q4",
+            "requirement_ids": [
+              "r4"
+            ],
+            "category": "technical",
+            "prompt": "How do you index and optimize slow MongoDB aggregation queries?",
+            "answer_outline": "Place $match first using covered compound indexes.",
+            "difficulty": 2
+          },
+          {
+            "id": "q5",
+            "requirement_ids": [
+              "r5"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe how you handle technical disagreements with team members.",
+            "answer_outline": "Drive data-based benchmarking and consensus reviews.",
+            "difficulty": 1
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "Express Error Middleware Signature",
+            "back": "(err, req, res, next)",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f2",
+            "front": "Next.js App Router Server Actions",
+            "back": "Asynchronous server functions callable from UI components",
+            "requirement_ids": [
+              "r2"
+            ]
+          }
+        ],
+        "schedule": {
+          "days_available": 7,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Day 1: System Design",
+              "question_ids": [
+                "q1"
+              ],
+              "minutes": 25
+            },
+            {
+              "day": 2,
+              "focus": "Day 2: Technical Prep",
+              "question_ids": [
+                "q2"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 3,
+              "focus": "Day 3: Technical Prep",
+              "question_ids": [
+                "q3"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 4,
+              "focus": "Day 4: Technical Prep",
+              "question_ids": [
+                "q4"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 5,
+              "focus": "Day 5: Behavioural",
+              "question_ids": [
+                "q5"
+              ],
+              "minutes": 10
+            },
+            {
+              "day": 6,
+              "focus": "Day 6: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 7,
+              "focus": "Day 7: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-4-localhost-loopback",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Localhost",
+          "company_url": "http://localhost:8099/hiring",
+          "role": "Full-Stack Engineer",
+          "location": "Remote / Hybrid",
+          "jd_chars": 74,
+          "researched_at": "2026-09-28T10:17:42.370Z",
+          "pages_used": [
+            "http://localhost:8099/hiring"
+          ]
+        },
+        "company_brief": {
+          "summary": "Localhost is the hiring organization.",
+          "what_they_do": "Building scalable software and developer applications.",
+          "sources": [
+            "http://localhost:8099/hiring"
+          ]
+        },
+        "role": {
+          "title": "Full-Stack Engineer",
+          "seniority": "Senior",
+          "responsibilities": [
+            "Design and implement Node.js API services",
+            "Build frontend web applications with Next.js"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Core Backend API Development & Node.js",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r2",
+              "text": "Frontend Engineering & Modern React",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r3",
+              "text": "System Architecture & Scalability",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r4",
+              "text": "Database Design & Optimization",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "r5",
+              "text": "Cross-functional Communication",
+              "kind": "behavioural",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "requirement_ids": [
+              "r3"
+            ],
+            "category": "system-design",
+            "prompt": "Design a high-availability backend service for managing interview kits.",
+            "answer_outline": "Use load balanced microservices, Redis caching, and async worker queues.",
+            "difficulty": 3
+          },
+          {
+            "id": "q2",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "How do you handle async error handling in Express TypeScript middleware?",
+            "answer_outline": "Use custom error classes and central error handling middleware.",
+            "difficulty": 2
+          },
+          {
+            "id": "q3",
+            "requirement_ids": [
+              "r2"
+            ],
+            "category": "technical",
+            "prompt": "Compare React Server Components vs Client Components in Next.js App Router.",
+            "answer_outline": "Server components execute on server reducing JS bundle size.",
+            "difficulty": 2
+          },
+          {
+            "id": "q4",
+            "requirement_ids": [
+              "r4"
+            ],
+            "category": "technical",
+            "prompt": "How do you index and optimize slow MongoDB aggregation queries?",
+            "answer_outline": "Place $match first using covered compound indexes.",
+            "difficulty": 2
+          },
+          {
+            "id": "q5",
+            "requirement_ids": [
+              "r5"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe how you handle technical disagreements with team members.",
+            "answer_outline": "Drive data-based benchmarking and consensus reviews.",
+            "difficulty": 1
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "Express Error Middleware Signature",
+            "back": "(err, req, res, next)",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f2",
+            "front": "Next.js App Router Server Actions",
+            "back": "Asynchronous server functions callable from UI components",
+            "requirement_ids": [
+              "r2"
+            ]
+          }
+        ],
+        "schedule": {
+          "days_available": 1,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Day 1: System Design & Technical Prep & Behavioural",
+              "question_ids": [
+                "q1",
+                "q2",
+                "q3",
+                "q4",
+                "q5"
+              ],
+              "minutes": 80
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-5-architect-14day",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Github",
+          "company_url": "https://github.com",
+          "role": "Full-Stack Engineer",
+          "location": "Remote / Hybrid",
+          "jd_chars": 215,
+          "researched_at": "2026-09-28T10:17:42.371Z",
+          "pages_used": [
+            "https://github.com"
+          ]
+        },
+        "company_brief": {
+          "summary": "Github is the hiring organization.",
+          "what_they_do": "Building scalable software and developer applications.",
+          "sources": [
+            "https://github.com"
+          ]
+        },
+        "role": {
+          "title": "Full-Stack Engineer",
+          "seniority": "Senior",
+          "responsibilities": [
+            "Design and implement Node.js API services",
+            "Build frontend web applications with Next.js"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Core Backend API Development & Node.js",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r2",
+              "text": "Frontend Engineering & Modern React",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r3",
+              "text": "System Architecture & Scalability",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r4",
+              "text": "Database Design & Optimization",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "r5",
+              "text": "Cross-functional Communication",
+              "kind": "behavioural",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "requirement_ids": [
+              "r3"
+            ],
+            "category": "system-design",
+            "prompt": "Design a high-availability backend service for managing interview kits.",
+            "answer_outline": "Use load balanced microservices, Redis caching, and async worker queues.",
+            "difficulty": 3
+          },
+          {
+            "id": "q2",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "How do you handle async error handling in Express TypeScript middleware?",
+            "answer_outline": "Use custom error classes and central error handling middleware.",
+            "difficulty": 2
+          },
+          {
+            "id": "q3",
+            "requirement_ids": [
+              "r2"
+            ],
+            "category": "technical",
+            "prompt": "Compare React Server Components vs Client Components in Next.js App Router.",
+            "answer_outline": "Server components execute on server reducing JS bundle size.",
+            "difficulty": 2
+          },
+          {
+            "id": "q4",
+            "requirement_ids": [
+              "r4"
+            ],
+            "category": "technical",
+            "prompt": "How do you index and optimize slow MongoDB aggregation queries?",
+            "answer_outline": "Place $match first using covered compound indexes.",
+            "difficulty": 2
+          },
+          {
+            "id": "q5",
+            "requirement_ids": [
+              "r5"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe how you handle technical disagreements with team members.",
+            "answer_outline": "Drive data-based benchmarking and consensus reviews.",
+            "difficulty": 1
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "Express Error Middleware Signature",
+            "back": "(err, req, res, next)",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f2",
+            "front": "Next.js App Router Server Actions",
+            "back": "Asynchronous server functions callable from UI components",
+            "requirement_ids": [
+              "r2"
+            ]
+          }
+        ],
+        "schedule": {
+          "days_available": 14,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Day 1: System Design",
+              "question_ids": [
+                "q1"
+              ],
+              "minutes": 25
+            },
+            {
+              "day": 2,
+              "focus": "Day 2: Technical Prep",
+              "question_ids": [
+                "q2"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 3,
+              "focus": "Day 3: Technical Prep",
+              "question_ids": [
+                "q3"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 4,
+              "focus": "Day 4: Technical Prep",
+              "question_ids": [
+                "q4"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 5,
+              "focus": "Day 5: Behavioural",
+              "question_ids": [
+                "q5"
+              ],
+              "minutes": 10
+            },
+            {
+              "day": 6,
+              "focus": "Day 6: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 7,
+              "focus": "Day 7: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 8,
+              "focus": "Day 8: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 9,
+              "focus": "Day 9: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 10,
+              "focus": "Day 10: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 11,
+              "focus": "Day 11: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 12,
+              "focus": "Day 12: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 13,
+              "focus": "Day 13: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 14,
+              "focus": "Day 14: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,867 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-29T05:28:08.804Z",
+  "kits": [
+    {
+      "id": "case-1-standard-fullstack",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Apex",
+          "company_url": "https://apex.io",
+          "role": "Senior Full-Stack Engineer",
+          "location": "Remote / Hybrid",
+          "jd_chars": 282,
+          "researched_at": "2026-09-29T05:26:32.166Z",
+          "pages_used": [
+            "https://apex.io"
+          ]
+        },
+        "company_brief": {
+          "summary": "Apex is the target hiring organization for this position.",
+          "what_they_do": "External hiring pages or public documentation for https://apex.io were unavailable during initial crawl.",
+          "sources": []
+        },
+        "role": {
+          "title": "Senior Full-Stack Engineer",
+          "seniority": "Senior",
+          "responsibilities": [],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Strong Node.js, Express, TypeScript, and Next.js 14 App Router experience",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r2",
+              "text": "Proven experience designing REST APIs",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r3",
+              "text": "Working with PostgreSQL/MongoDB databases",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r4",
+              "text": "Docker",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "r5",
+              "text": "Redis caching",
+              "kind": "technical",
+              "priority": "nice"
+            },
+            {
+              "id": "r6",
+              "text": "CI/CD automation",
+              "kind": "technical",
+              "priority": "nice"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "Explain how you would set up a Next.js 14 application using the App Router with TypeScript and integrate an Express API server. What are the key steps and considerations?",
+            "answer_outline": "Project scaffold with create‑next‑app --ts, enable app router, configure tsconfig for strict mode, create a custom server (e.g., server.js) that imports Express, mount API routes under /api, use next‑router handler for Next pages, handle middleware ordering, share env variables, ensure type safety across Express handlers, consider deployment (Vercel vs self‑hosted).",
+            "difficulty": 2
+          },
+          {
+            "id": "q2",
+            "requirement_ids": [
+              "r2"
+            ],
+            "category": "system-design",
+            "prompt": "Design a RESTful API for a multi‑tenant SaaS product that manages projects and tasks. Describe resources, endpoints, authentication, rate limiting, versioning, and documentation approach.",
+            "answer_outline": "Resources: /tenants/{tenantId}/projects, /projects/{projectId}/tasks; CRUD verbs; use JWT with tenant claim for isolation; scopes/roles for permissions; pagination (limit/offset or cursor); filtering/sorting; version via URL (/v1/...), content‑negotiation optional; rate limiting per tenant (token bucket); OpenAPI spec generation, Swagger UI; error handling conventions; webhook support optional.",
+            "difficulty": 3
+          },
+          {
+            "id": "q3",
+            "requirement_ids": [
+              "r3"
+            ],
+            "category": "technical",
+            "prompt": "Compare PostgreSQL and MongoDB for storing hierarchical data such as categories and sub‑categories. When would you choose each, and how would you model the data?",
+            "answer_outline": "PostgreSQL: relational, use adjacency list (parent_id) or nested set, or JSONB column for flexible schema; supports transactions, strong consistency, complex joins, constraints. MongoDB: document‑oriented, embed sub‑categories as nested arrays or use parent‑reference; benefits: single‑document reads, flexible schema, easier scaling; trade‑offs: eventual consistency, limited joins. Choose PostgreSQL when strong ACID, complex queries, reporting needed; choose MongoDB when hierarchy is read‑heavy, schema evolves, need rapid prototyping.",
+            "difficulty": 2
+          },
+          {
+            "id": "q4",
+            "requirement_ids": [
+              "r4"
+            ],
+            "category": "technical",
+            "prompt": "What are the essential steps to containerize a Node.js/Express application with Docker? Provide a minimal Dockerfile.",
+            "answer_outline": "1. Choose lightweight base (node:18‑alpine). 2. Set WORKDIR /app. 3. Copy package*.json and run npm ci --production. 4. Copy source code. 5. Build TypeScript if needed (npm run build). 6. Expose port (e.g., 3000). 7. CMD [\"node\",\"dist/index.js\"] or npm start. Include .dockerignore to omit node_modules, tests, docs. Use multi‑stage build for smaller image if compiling TS.",
+            "difficulty": 1
+          },
+          {
+            "id": "q5",
+            "requirement_ids": [
+              "r5"
+            ],
+            "category": "technical",
+            "prompt": "Describe how you would implement caching for a frequently accessed endpoint using Redis in a Node.js application. Include a cache‑invalidation strategy.",
+            "answer_outline": "Create Redis client (ioredis or node‑redis). Middleware: generate cache key from request path + query params. On request, try GET key; if hit, return cached JSON. If miss, call controller, then SET key with JSON and TTL (e.g., 5 min). Invalidation: on data‑write operations affecting the endpoint, delete related keys (DEL) or use pub/sub to broadcast invalidation. Consider race condition (cache‑aside pattern) and stale‑while‑revalidate if needed.",
+            "difficulty": 2
+          },
+          {
+            "id": "q6",
+            "requirement_ids": [
+              "r6"
+            ],
+            "category": "system-design",
+            "prompt": "Outline a CI/CD pipeline for a Next.js TypeScript project that builds Docker images, runs tests, and deploys to a Kubernetes cluster. Include tools and key steps.",
+            "answer_outline": "Source control: GitHub. CI: GitHub Actions workflow triggers on push/PR. Steps: 1) checkout, 2) setup Node, 3) install deps, 4) lint (eslint), 5) type check (tsc --noEmit), 6) unit tests (jest), 7) integration/E2E (cypress), 8) build Next.js (next build), 9) Docker build (multi‑stage) tagging with commit SHA, 10) push to container registry (GHCR/ECR), 11) Deploy: helm upgrade --install using image tag, 12) post‑deploy smoke test, 13) rollback on failure. Use secrets for registry creds, KUBE_CONFIG. Optional: canary deployment with Argo Rollouts.",
+            "difficulty": 3
+          },
+          {
+            "id": "q7",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "Explain how you would use TypeScript utility types to create a type‑safe API response wrapper that includes data, error, and metadata fields.",
+            "answer_outline": "Define generic type ApiResponse<T> = { data: T; error?: string; meta?: { requestId: string; timestamp: string; }; }. Use Partial<T> for optional fields, Omit<T,'password'> to strip sensitive data, ReturnType<typeof handler> to infer T, Conditional types to enforce that either data or error is present (e.g., type Success<T> = { data: T; error?: never }; type Failure = { data?: never; error: string }; type ApiResponse<T> = Success<T> | Failure).",
+            "difficulty": 2
+          },
+          {
+            "id": "q8",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "When a Next.js page is loading slowly in production, what steps would you take to diagnose and improve its performance?",
+            "answer_outline": "1) Measure with Lighthouse/Chrome DevTools (TTI, FCP). 2) Check server‑side logs for slow data fetching (API latency, DB queries). 3) Verify getServerSideProps vs static generation; switch to ISR or static if possible. 4) Profile bundle size (next build --profile), enable code‑splitting, dynamic imports. 5) Optimize images (next/image, proper formats). 6) Implement caching (Redis, SWR). 7) Review third‑party scripts, defer non‑critical JS. 8) Use CDN, enable HTTP/2, compress responses. 9) Monitor with real‑user monitoring (RUM).",
+            "difficulty": 2
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "What are the key benefits of using TypeScript with Node.js and Express?",
+            "back": "Static typing, early error detection, improved IDE support, better refactoring, and clearer contracts for APIs.",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f2",
+            "front": "Explain the difference between Next.js 13 pages router and the new App Router in Next.js 14.",
+            "back": "App Router uses React Server Components, file‑based routing with nested layouts, improved data fetching, and streaming; pages router is legacy with client‑side rendering.",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f3",
+            "front": "How do you design a RESTful API for a resource with nested relationships?",
+            "back": "Use plural nouns, proper HTTP verbs, nested routes for sub‑resources, pagination, filtering, and HATEOAS links; keep URLs intuitive.",
+            "requirement_ids": [
+              "r2"
+            ]
+          },
+          {
+            "id": "f4",
+            "front": "What status codes would you return for successful GET, creation, update, and deletion?",
+            "back": "200 OK (GET), 201 Created (POST), 200 OK or 204 No Content (PUT/PATCH), 204 No Content (DELETE).",
+            "requirement_ids": [
+              "r2"
+            ]
+          },
+          {
+            "id": "f5",
+            "front": "When would you choose PostgreSQL over MongoDB and vice versa?",
+            "back": "PostgreSQL for relational data, ACID transactions, complex queries; MongoDB for flexible schemas, rapid prototyping, hierarchical data.",
+            "requirement_ids": [
+              "r3"
+            ]
+          },
+          {
+            "id": "f6",
+            "front": "How do you implement connection pooling in PostgreSQL with Node.js?",
+            "back": "Use pg.Pool, configure max connections, idle timeout, and reuse clients for queries to improve performance.",
+            "requirement_ids": [
+              "r3"
+            ]
+          },
+          {
+            "id": "f7",
+            "front": "What is the purpose of Docker in a development workflow?",
+            "back": "Containerization for consistent environments, isolation, easy scaling, reproducible builds, and simplified deployment.",
+            "requirement_ids": [
+              "r4"
+            ]
+          },
+          {
+            "id": "f8",
+            "front": "Write a basic Dockerfile for a Node.js/TypeScript app using Next.js.",
+            "back": "FROM node:20-alpine\\nWORKDIR /app\\nCOPY package*.json ./\\nRUN npm ci\\nCOPY . .\\nRUN npm run build\\nEXPOSE 3000\\nCMD [\\\"npm\\\",\\\"start\\\"]",
+            "requirement_ids": [
+              "r4",
+              "r1"
+            ]
+          },
+          {
+            "id": "f9",
+            "front": "How does Redis improve application performance?",
+            "back": "In‑memory data store for caching, session storage, rate limiting, pub/sub; reduces DB load and latency.",
+            "requirement_ids": [
+              "r5"
+            ]
+          },
+          {
+            "id": "f10",
+            "front": "Describe a CI/CD pipeline for a Next.js app with Docker and Redis caching.",
+            "back": "1. Lint/TS check, 2. Unit tests, 3. Build Docker image, 4. Push to registry, 5. Deploy to staging, 6. Run integration tests, 7. Promote to production; use Redis for cache warm‑up scripts.",
+            "requirement_ids": [
+              "r6",
+              "r4",
+              "r5",
+              "r1"
+            ]
+          },
+          {
+            "id": "f11",
+            "front": "Behavioral: Tell me about a time you resolved a production outage caused by a misconfigured Docker container.",
+            "back": "Explain situation, root cause (wrong env var), steps taken (rollback, logs, fix Dockerfile), outcome (service restored <10 min), lessons learned (add health checks, CI validation).",
+            "requirement_ids": []
+          }
+        ],
+        "schedule": {
+          "days_available": 5,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Day 1: System Design & Technical Prep",
+              "question_ids": [
+                "q2",
+                "q1"
+              ],
+              "minutes": 40
+            },
+            {
+              "day": 2,
+              "focus": "Day 2: Technical Prep",
+              "question_ids": [
+                "q3",
+                "q7"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 3,
+              "focus": "Day 3: Technical Prep & System Design",
+              "question_ids": [
+                "q8",
+                "q6"
+              ],
+              "minutes": 40
+            },
+            {
+              "day": 4,
+              "focus": "Day 4: Technical Prep",
+              "question_ids": [
+                "q5"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 5,
+              "focus": "Day 5: Technical Prep",
+              "question_ids": [
+                "q4"
+              ],
+              "minutes": 10
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-2-stub-jd",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example",
+          "company_url": "https://example.org",
+          "role": "React Developer",
+          "location": "Remote / Hybrid",
+          "jd_chars": 53,
+          "researched_at": "2026-09-29T05:26:44.191Z",
+          "pages_used": [
+            "https://example.org/"
+          ]
+        },
+        "company_brief": {
+          "summary": "Example provides a placeholder domain used in documentation examples, not an actual service or product.",
+          "what_they_do": "The site offers a reserved domain (example.com) intended solely for use in documentation, tutorials, and examples without requiring permission; it does not provide any real services, products, or monitoring capabilities.",
+          "sources": [
+            "https://example.org/"
+          ]
+        },
+        "role": {
+          "title": "React Developer",
+          "seniority": "Mid-Senior",
+          "responsibilities": [],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Knowledge of JavaScript",
+              "kind": "technical",
+              "priority": "must"
+            },
+            {
+              "id": "r2",
+              "text": "Knowledge of CSS",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ]
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "Explain the difference between var, let, and const in JavaScript, and describe scenarios where each should be used.",
+            "answer_outline": "Scope (function vs block), hoisting behavior, mutability of bindings, temporal dead zone, best‑practice recommendations (prefer const, use let for reassignment, avoid var).",
+            "difficulty": 2
+          },
+          {
+            "id": "q2",
+            "requirement_ids": [
+              "r2"
+            ],
+            "category": "technical",
+            "prompt": "Describe the CSS box model and how you can change its behavior using CSS properties.",
+            "answer_outline": "Content, padding, border, margin layers; default box-sizing content-box; using box-sizing: border-box to include padding/border in width/height; impact on layout and responsive design.",
+            "difficulty": 1
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "What are the differences between var, let, and const in JavaScript?",
+            "back": "var is function‑scoped and hoisted; let and const are block‑scoped. const cannot be reassigned. Both let and const are not hoisted like var.",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f2",
+            "front": "Explain event delegation in JavaScript and its benefits.",
+            "back": "Event delegation attaches a single listener to a parent element to handle events from child elements, reducing memory usage and handling dynamic elements efficiently.",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f3",
+            "front": "What is the CSS box model and how does box‑sizing affect it?",
+            "back": "The box model includes content, padding, border, and margin. box‑sizing:border-box includes padding and border within the element’s width/height, simplifying layout.",
+            "requirement_ids": [
+              "r2"
+            ]
+          },
+          {
+            "id": "f4",
+            "front": "Describe a situation where you had to resolve a conflict within a team.",
+            "back": "State the context, actions taken (active listening, finding common ground), and the positive outcome (improved collaboration).",
+            "requirement_ids": []
+          }
+        ],
+        "schedule": {
+          "days_available": 3,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Day 1: Technical Prep",
+              "question_ids": [
+                "q1"
+              ],
+              "minutes": 15
+            },
+            {
+              "day": 2,
+              "focus": "Day 2: Technical Prep",
+              "question_ids": [
+                "q2"
+              ],
+              "minutes": 10
+            },
+            {
+              "day": 3,
+              "focus": "Day 3: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-3-unreachable-url",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Invalid-non-existent-company-domain-98234",
+          "company_url": "https://invalid-non-existent-company-domain-98234.org",
+          "role": "Backend Systems Engineer",
+          "location": "Remote / Hybrid",
+          "jd_chars": 157,
+          "researched_at": "2026-09-29T05:26:49.886Z",
+          "pages_used": [
+            "https://invalid-non-existent-company-domain-98234.org"
+          ]
+        },
+        "company_brief": {
+          "summary": "Invalid-non-existent-company-domain-98234 is the target hiring organization for this position.",
+          "what_they_do": "External hiring pages or public documentation for https://invalid-non-existent-company-domain-98234.org were unavailable during initial crawl.",
+          "sources": []
+        },
+        "role": {
+          "title": "Backend Systems Engineer",
+          "seniority": "Mid-Senior",
+          "responsibilities": [
+            "Build microservices in TypeScript",
+            "Manage Kafka streams",
+            "Maintain high availability databases"
+          ],
+          "requirements": []
+        },
+        "questions": [],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "What is the time complexity of binary search on a sorted array?",
+            "back": "O(log n) – each comparison halves the search space.",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f2",
+            "front": "Explain the difference between a stack and a queue.",
+            "back": "Stack: LIFO (push/pop). Queue: FIFO (enqueue/dequeue).",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f3",
+            "front": "What is a hash table and how does it handle collisions?",
+            "back": "A hash table maps keys to buckets using a hash function. Collisions are handled by chaining (linked lists) or open addressing (linear/quadratic probing).",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f4",
+            "front": "Describe the Big O notation for insertion in a balanced binary search tree.",
+            "back": "O(log n) – height is logarithmic, so insertion/search takes log n time.",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f5",
+            "front": "What is the difference between a process and a thread?",
+            "back": "Process: independent memory space, heavier context switch. Thread: shares memory of its process, lighter context switch.",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f6",
+            "front": "Explain the CAP theorem in distributed systems.",
+            "back": "Consistency, Availability, Partition tolerance – a system can satisfy at most two of the three simultaneously.",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f7",
+            "front": "What is the purpose of a design pattern like Singleton?",
+            "back": "Ensures a class has only one instance and provides a global point of access to it.",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f8",
+            "front": "Describe the STAR method for behavioural interview answers.",
+            "back": "Situation, Task, Action, Result – structure responses to showcase problem-solving and impact.",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f9",
+            "front": "How would you handle a conflict with a teammate?",
+            "back": "Use active listening, clarify perspectives, find common goals, propose a collaborative solution, and follow up.",
+            "requirement_ids": [
+              "r1"
+            ]
+          },
+          {
+            "id": "f10",
+            "front": "What are the key qualities of a good technical leader?",
+            "back": "Strong communication, empathy, technical depth, decision-making, mentorship, and adaptability.",
+            "requirement_ids": [
+              "r1"
+            ]
+          }
+        ],
+        "schedule": {
+          "days_available": 7,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Day 1: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 2,
+              "focus": "Day 2: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 3,
+              "focus": "Day 3: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 4,
+              "focus": "Day 4: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 5,
+              "focus": "Day 5: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 6,
+              "focus": "Day 6: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 7,
+              "focus": "Day 7: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-4-localhost-loopback",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Localhost",
+          "company_url": "http://localhost:8099/hiring",
+          "role": "Full-Stack Lead",
+          "location": "Remote / Hybrid",
+          "jd_chars": 74,
+          "researched_at": "2026-09-29T05:26:58.512Z",
+          "pages_used": [
+            "http://localhost:8099/hiring"
+          ]
+        },
+        "company_brief": {
+          "summary": "Localhost is the target hiring organization for this position.",
+          "what_they_do": "External hiring pages or public documentation for http://localhost:8099/hiring were unavailable during initial crawl.",
+          "sources": []
+        },
+        "role": {
+          "title": "Full-Stack Lead",
+          "seniority": "Lead",
+          "responsibilities": [],
+          "requirements": []
+        },
+        "questions": [
+          {
+            "id": "q1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "Explain the virtual DOM concept in React and how it improves rendering performance compared to direct DOM manipulation.",
+            "answer_outline": "Definition of virtual DOM, diffing algorithm, batch updates, reduced reflows/repaints, comparison with manual DOM updates.",
+            "difficulty": 1
+          },
+          {
+            "id": "q2",
+            "requirement_ids": [
+              "r2"
+            ],
+            "category": "technical",
+            "prompt": "Describe how you would implement rate limiting for a public REST API built with Node.js and Express.",
+            "answer_outline": "Use middleware, token bucket or leaky bucket algorithm, Redis for distributed counters, HTTP 429 response, configurable limits per IP/API key.",
+            "difficulty": 2
+          },
+          {
+            "id": "q3",
+            "requirement_ids": [
+              "r6"
+            ],
+            "category": "technical",
+            "prompt": "What are the OWASP Top 10 risks most relevant to a full‑stack web application, and how would you mitigate each at the code level?",
+            "answer_outline": "List of risks (e.g., Injection, XSS, CSRF, Broken Auth, Security Misconfiguration, Sensitive Data Exposure, etc.) with mitigation techniques: prepared statements, output encoding, CSRF tokens, secure cookies, CSP, HTTPS, least privilege, etc.",
+            "difficulty": 3
+          },
+          {
+            "id": "q4",
+            "requirement_ids": [
+              "r3"
+            ],
+            "category": "system-design",
+            "prompt": "Design a scalable, multi‑tenant SaaS platform for real‑time collaboration documents. Outline the high‑level components, data model, and how you would handle concurrency and isolation between tenants.",
+            "answer_outline": "Components: API gateway, auth service, document service (CRDT or OT), tenant isolation layer, storage (SQL/NoSQL), message broker, CDN. Data model: tenant_id, document_id, versioning. Concurrency: CRDT/OT, optimistic locking. Isolation: separate schemas or row‑level security, tenant‑specific keys.",
+            "difficulty": 3
+          },
+          {
+            "id": "q5",
+            "requirement_ids": [
+              "r5"
+            ],
+            "category": "system-design",
+            "prompt": "Outline a CI/CD pipeline for a full‑stack application that includes automated unit, integration, and end‑to‑end tests, as well as canary deployments to Kubernetes.",
+            "answer_outline": "Stages: lint, unit tests, build Docker images, integration tests (service mocks), e2e tests (Cypress/Playwright), security scan, push to registry, Helm chart update, canary rollout via Argo Rollouts or Flagger, monitoring, rollback strategy.",
+            "difficulty": 2
+          },
+          {
+            "id": "q6",
+            "requirement_ids": [
+              "r4"
+            ],
+            "category": "behavioural",
+            "prompt": "Tell me about a time you had to onboard a junior developer onto a complex codebase. What steps did you take to ensure they became productive quickly?",
+            "answer_outline": "Mentorship plan, documentation walkthrough, pair programming, small starter tickets, code review feedback loop, setting up dev environment, measuring progress.",
+            "difficulty": 2
+          },
+          {
+            "id": "q7",
+            "requirement_ids": [
+              "r4"
+            ],
+            "category": "behavioural",
+            "prompt": "How do you handle conflicts within your team when there are differing opinions on architectural decisions?",
+            "answer_outline": "Facilitate open discussion, data‑driven evaluation, prototype/POC, consensus building, escalation path, respect for expertise, final decision authority.",
+            "difficulty": 2
+          },
+          {
+            "id": "q8",
+            "requirement_ids": [
+              "r7",
+              "r8"
+            ],
+            "category": "company-fit",
+            "prompt": "Our company values continuous learning and cross‑functional collaboration. Can you give examples of how you have embodied these values in previous roles?",
+            "answer_outline": "Examples of learning new tech (courses, conferences), knowledge‑sharing sessions, hackathons, cross‑team projects, mentorship, open‑source contributions, feedback culture.",
+            "difficulty": 1
+          }
+        ],
+        "flashcards": [],
+        "schedule": {
+          "days_available": 1,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Day 1: Technical Prep & System Design & Behavioural & Company Fit",
+              "question_ids": [
+                "q3",
+                "q4",
+                "q2",
+                "q5",
+                "q6",
+                "q7",
+                "q8",
+                "q1"
+              ],
+              "minutes": 130
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-5-architect-14day",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Github",
+          "company_url": "https://github.com",
+          "role": "Staff Systems Architect & Tech Lead",
+          "location": "Remote / Hybrid",
+          "jd_chars": 215,
+          "researched_at": "2026-09-29T05:27:20.443Z",
+          "pages_used": [
+            "https://github.com/",
+            "https://github.com/team",
+            "https://github.com/about"
+          ]
+        },
+        "company_brief": {
+          "summary": "GitHub is the world’s largest developer platform that combines source‑code hosting, collaboration tools, AI‑assisted development, and secure CI/CD to help individuals and organizations build, ship, and maintain software.",
+          "what_they_do": "GitHub provides a suite of products and services:\n- **Code hosting & collaboration**: Git repositories, pull‑request workflow, Issues, Projects, Discussions, and Sponsors for open‑source communities.\n- **AI assistance**: GitHub Copilot (code completion, chat, and Autofix) and Copilot Chat for AI‑driven coding help.\n- **Cloud development environments**: GitHub Codespaces delivers instant, cloud‑based dev environments.\n- **CI/CD automation**: GitHub Actions lets teams build, test, and deploy on any OS, language, or cloud with thousands of pre‑built actions.\n- **Security & compliance**: Advanced Security includes Dependabot (vulnerability alerts & automated fixes), Secret Protection, and Copilot Autofix to reduce MTTR and secret leaks.\n- **Enterprise & team plans**: GitHub Free, Team, and Enterprise offerings add protected branches, SAML SSO, self‑hosted Enterprise Server, and premium support.\n- **Marketplace & integrations**: Apps, actions, and AI models that extend the platform, plus native integrations with tools like Slack and Jira.\n- **Community & resources**: Octoverse reports, blogs, customer stories, and a global developer community.\nThese capabilities enable developers, businesses, and open‑source projects to collaborate, automate, secure, and scale software development.",
+          "sources": [
+            "https://github.com/",
+            "https://github.com/team",
+            "https://github.com/about"
+          ]
+        },
+        "role": {
+          "title": "Staff Systems Architect & Tech Lead",
+          "seniority": "Staff",
+          "responsibilities": [
+            "Distributed systems design",
+            "Microservice orchestration",
+            "Mentoring junior engineers",
+            "Leading cross-functional design reviews",
+            "High-concurrency Node.js optimization"
+          ],
+          "requirements": []
+        },
+        "questions": [],
+        "flashcards": [],
+        "schedule": {
+          "days_available": 14,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Day 1: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 2,
+              "focus": "Day 2: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 3,
+              "focus": "Day 3: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 4,
+              "focus": "Day 4: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 5,
+              "focus": "Day 5: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 6,
+              "focus": "Day 6: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 7,
+              "focus": "Day 7: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 8,
+              "focus": "Day 8: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 9,
+              "focus": "Day 9: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 10,
+              "focus": "Day 10: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 11,
+              "focus": "Day 11: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 12,
+              "focus": "Day 12: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 13,
+              "focus": "Day 13: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            },
+            {
+              "day": 14,
+              "focus": "Day 14: Comprehensive Review & Practice",
+              "question_ids": [],
+              "minutes": 0
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    }
+  ]
+}

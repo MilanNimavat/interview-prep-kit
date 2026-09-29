@@ -1,0 +1,32 @@
+[
+  {
+    "id": "case-1-standard-fullstack",
+    "jd": "Senior Full-Stack Engineer at Apex. Key requirements: Strong Node.js, Express, TypeScript, and Next.js 14 App Router experience. Must have proven experience designing REST APIs and working with PostgreSQL/MongoDB databases. Nice to have: Docker, Redis caching, and CI/CD automation.",
+    "company_url": "https://apex.io",
+    "days": 5
+  },
+  {
+    "id": "case-2-stub-jd",
+    "jd": "Hiring React Developer. Must know Javascript and CSS.",
+    "company_url": "https://example.org",
+    "days": 3
+  },
+  {
+    "id": "case-3-unreachable-url",
+    "jd": "Backend Systems Engineer. Responsibilities include building microservices in TypeScript, managing Kafka streams, and maintaining high availability databases.",
+    "company_url": "https://invalid-non-existent-company-domain-98234.org",
+    "days": 7
+  },
+  {
+    "id": "case-4-localhost-loopback",
+    "jd": "1-day crash course for Full-Stack Lead interview at local stealth startup.",
+    "company_url": "http://localhost:8099/hiring",
+    "days": 1
+  },
+  {
+    "id": "case-5-architect-14day",
+    "jd": "Staff Systems Architect & Tech Lead. Key focus: Distributed systems design, microservice orchestration, mentoring junior engineers, leading cross-functional design reviews, and high-concurrency Node.js optimization.",
+    "company_url": "https://github.com",
+    "days": 14
+  }
+]
