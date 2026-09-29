@@ -71,6 +71,8 @@ export const QuestionSchema = z.object({
   answer_outline: z.string(),
   difficulty: QuestionDifficultySchema,
   user_state: UserStateSchema.optional(),
+  user_answer: z.string().optional(),
+  evaluation: z.any().optional(),
 });
 export type Question = z.infer<typeof QuestionSchema>;
 

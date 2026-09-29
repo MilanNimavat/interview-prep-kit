@@ -190,6 +190,21 @@ export default function KitDetailPage() {
         }),
       });
       setEvaluationResult(res.evaluation);
+
+      // Persist the answer and evaluation to the question array
+      const updated = { ...kitRecord.kitData };
+      updated.questions = updated.questions.map((q: any) => {
+        if (q.id === practiceQuestion.id) {
+          return {
+            ...q,
+            user_answer: userAnswer,
+            evaluation: res.evaluation
+          };
+        }
+        return q;
+      });
+      setKitRecord({ ...kitRecord, kitData: updated });
+      saveKitChanges(updated);
     } catch (err: any) {
       alert(err.message || 'Evaluation failed.');
     } finally {
@@ -493,8 +508,8 @@ export default function KitDetailPage() {
                   <button
                     onClick={() => {
                       setPracticeQuestion(q);
-                      setUserAnswer('');
-                      setEvaluationResult(null);
+                      setUserAnswer(q.user_answer || '');
+                      setEvaluationResult(q.evaluation || null);
                     }}
                     className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 text-xs font-bold transition-all hover:scale-105"
                   >
