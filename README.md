@@ -20,8 +20,8 @@ The project is structured as a **Split Monorepo (npm workspaces)** containing tw
   - *Justification:* Express provides a lightweight, robust framework for building RESTful APIs. TypeScript ensures type safety across the complex data schemas (using Zod for validation).
 - **Frontend:** Next.js 14+ (App Router), React, Tailwind CSS, TypeScript
   - *Justification:* Next.js App Router offers excellent performance and developer experience. Tailwind CSS allows for rapid, consistent styling of a professional UI without massive CSS bundles.
-- **LLM Provider:** Groq (`llama-3.3-70b-versatile` with `llama-3.1-8b-instant` fallback)
-  - *Justification:* Groq offers blazing-fast inference speeds, which is crucial for complex, multi-step generation pipelines that require structured JSON outputs.
+- **LLM Provider:** Groq API (Robust Model Waterfall Array)
+  - *Justification:* Groq offers blazing-fast inference speeds. To protect against aggressive model deprecations on different API key tiers, I implemented a custom **Model Waterfall**. The backend maintains an array of valid models (including `openai/gpt-oss-120b`, `qwen/qwen3.8-27b`, and standard Llama models). If a model is unauthorized or decommissioned, the system instantly catches the `404/400` error and cascades down the array to the next model transparently.
 - **Database:** MongoDB (Mongoose) with **Seamless In-Memory Fallback**
   - *Justification:* MongoDB is ideal for storing the deeply nested JSON documents of the Kits. The custom in-memory fallback ensures the application and CLI can run instantly on any machine *without* requiring the evaluator to configure a local MongoDB instance.
 
@@ -135,6 +135,6 @@ The system was designed to be highly fault-tolerant:
 
 - **2-line stub Job Descriptions:** The LLM pipeline detects extremely short or generic JDs. It relies heavier on the company website context and standard software engineering baselines to flesh out a complete prep kit, rather than failing.
 - **404/Offline Company Sites:** If the crawler hits a 404, times out, or encounters a site that blocks scraping (e.g., aggressive WAF), it catches the error, logs a warning, and gracefully falls back to generating the kit based *solely* on the Job Description. The application never crashes.
-- **LLM Rate-Limit Backoff:** The `llm.ts` service wraps the Groq SDK with an exponential backoff and jitter strategy. If a `429 Too Many Requests` or `503 Service Unavailable` error occurs (common with free/tier-1 LLM APIs), the system automatically waits and retries up to 4 times before failing.
+- **Dynamic LLM Model Waterfall & Backoff:** The `llm.ts` service wraps the Groq SDK with an extremely resilient handler. If a `404` or `400` (Decommissioned/Unauthorized) error occurs, it instantly falls back to the next available model in a predefined array of OSS models (`gpt-oss`, `qwen`, `mixtral`, `llama`). If a `429 Too Many Requests` or `503 Service Unavailable` error occurs, the system automatically uses an exponential backoff with jitter and retries up to 4 times before failing.
 - **JSON Parsing Failures:** The LLM is forced into `json_object` mode. However, the system also employs a robust string-cleaning utility to strip markdown backticks (` ```json `) or preamble text before passing it to strict Zod schema validation.
 - **Missing Database Connectivity:** As mentioned, if MongoDB isn't running, the app seamlessly defaults to in-memory maps. It won't throw startup errors, ensuring a smooth evaluation experience.
