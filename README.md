@@ -1,4 +1,6 @@
-# The AI Interview Prep Kit 
+# The AI Interview Prep Kit
+
+🚀 **Live Demo:** [https://interview-prep-kit-gules.vercel.app/](https://interview-prep-kit-gules.vercel.app/)
 
 Welcome to **The AI Interview Prep Kit**! This project is a robust, full-stack application designed to automatically generate personalized interview preparation materials based on a job description and a company website.
 
